@@ -10,3 +10,9 @@ MvcMovie/MvcMovie/bin/
 MvcMovie/MvcMovie/obj/
 
 MvcMovie/MvcMovie/MvcMovie.csproj.user
+
+MvcMovie/DataAccess/bin/
+
+MvcMovie/Common/bin/
+
+MvcMovie/Common/obj/
