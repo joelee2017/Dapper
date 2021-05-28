@@ -13,6 +13,13 @@ namespace DataAccess.DbOperation
 
         }
 
+        public IEnumerable<Movie> GetAll()
+        {
+            string sql = @"select * from Movie";
+
+            return base.GetList(sql, new { });
+        }
+
         public IEnumerable<Movie> Gets(string searchString)
         {
             string sql = @"select * from Movie where Tile LIKE '%@Tile%'";

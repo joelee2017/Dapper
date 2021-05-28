@@ -1,3 +1,5 @@
+using DataAccess.DbContext;
+using DataAccess.Interface.DbContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Data.SqlClient;
@@ -6,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MvcMovie.Data;
+using Servcie.Interface;
+using Servcie.Service;
 using System.Data;
 
 namespace MvcMovie
@@ -33,6 +37,9 @@ namespace MvcMovie
                 conn.ConnectionString = Configuration.GetConnectionString("MvcMovieContext");
                 return conn;
             });
+
+            services.AddScoped<IMoviesService, MoviesService>();
+            services.AddScoped<IMovieDbContext, MovieDbContext>();
 
         }
 

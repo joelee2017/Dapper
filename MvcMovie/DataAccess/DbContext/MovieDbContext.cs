@@ -23,5 +23,7 @@ namespace DataAccess.DbContext
         {
             _movieDbOperation = new Lazy<IMovieDbOperation>(() => new MovieDbOperation(connection));
         }
+
+        public IMovieDbOperation MovieDbOperation => _movieDbOperation.Value;
     }
 }

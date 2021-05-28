@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Common.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
+using Servcie.Interface;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,10 +13,12 @@ namespace MvcMovie.Controllers
     public class MoviesController : Controller
     {
         private readonly MvcMovieContext _context;
+        private readonly IMoviesService  _moviesService;
 
-        public MoviesController(MvcMovieContext context)
+        public MoviesController(MvcMovieContext context, IMoviesService moviesService)
         {
             _context = context;
+            _moviesService = moviesService;
         }
 
         // GET: Movies
@@ -25,7 +29,10 @@ namespace MvcMovie.Controllers
                                             orderby m.Genre
                                             select m.Genre;
 
-            var movies = from m in _context.Movie
+            //var movies = from m in _context.Movie
+            //             select m;
+
+            var movies = from m in _moviesService.GetAll()
                          select m;
 
             if (!string.IsNullOrEmpty(searchString))
@@ -41,7 +48,8 @@ namespace MvcMovie.Controllers
             var movieGenreVM = new MovieGenreViewModel
             {
                 Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
-                Movies = await movies.ToListAsync()
+                //Movies = await movies.ToListAsync()
+                Movies = movies.ToList()
             };
 
             return View(movieGenreVM);
