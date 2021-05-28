@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MvcMovie.Data;
+using System.Data;
 
 namespace MvcMovie
 {
@@ -24,6 +26,13 @@ namespace MvcMovie
 
             services.AddDbContext<MvcMovieContext>(options 
                 => options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+
+            services.AddScoped<IDbConnection, SqlConnection>(serviceProvider => {
+                SqlConnection conn = new SqlConnection();
+                //«ü¬£³s½u¦r¦ê
+                conn.ConnectionString = Configuration.GetConnectionString("MvcMovieContext");
+                return conn;
+            });
 
         }
 

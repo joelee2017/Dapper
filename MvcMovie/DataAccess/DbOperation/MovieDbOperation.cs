@@ -15,7 +15,9 @@ namespace DataAccess.DbOperation
 
         public IEnumerable<Movie> Gets(string searchString)
         {
-            throw new System.NotImplementedException();
+            string sql = @"select * from Movie where Tile LIKE '%@Tile%'";
+
+            return base.GetList(sql, new { Title = searchString });
         }
     }
 }

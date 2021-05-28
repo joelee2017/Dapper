@@ -9,3 +9,7 @@ Dapper專案練習
 
 四、底層功能建置
 
+五、加入 ConnectionHpler
+
+六、加入 連線LIST、MovieDbContext、MovieDbOperation
+
