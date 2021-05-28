@@ -1,5 +1,7 @@
 using DataAccess.DbContext;
+using DataAccess.DbOperation;
 using DataAccess.Interface.DbContext;
+using DataAccess.Interface.DbOperation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Data.SqlClient;
@@ -31,15 +33,18 @@ namespace MvcMovie
             services.AddDbContext<MvcMovieContext>(options 
                 => options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
 
-            services.AddScoped<IDbConnection, SqlConnection>(serviceProvider => {
-                SqlConnection conn = new SqlConnection();
-                //指派連線字串
-                conn.ConnectionString = Configuration.GetConnectionString("MvcMovieContext");
-                return conn;
-            });
+            //services.AddScoped<IDbConnection, SqlConnection>(serviceProvider => {
+            //    SqlConnection conn = new SqlConnection();
+            //    //指派連線字串
+            //    conn.ConnectionString = Configuration.GetConnectionString("MvcMovieContext");
+            //    return conn;
+            //});
 
-            services.AddScoped<IMoviesService, MoviesService>();
+            //services.AddScoped<IMovieDbOperation, MovieDbOperation>();
             services.AddScoped<IMovieDbContext, MovieDbContext>();
+            services.AddScoped<IMoviesService, MoviesService>();
+
+     
 
         }
 

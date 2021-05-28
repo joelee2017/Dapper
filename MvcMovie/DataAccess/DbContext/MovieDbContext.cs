@@ -2,19 +2,17 @@
 using DataAccess.DbOperation;
 using DataAccess.Interface.DbContext;
 using DataAccess.Interface.DbOperation;
+using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.DbContext
 {
     public class MovieDbContext : IMovieDbContext
     {
         private readonly Lazy<IMovieDbOperation> _movieDbOperation;
-        public MovieDbContext() : this(ConnectionHpler.GetConnection(DBlist.MvcMovieContext))
+        public MovieDbContext(IConfiguration configuration) :
+            this(ConnectionHpler.GetConnection(configuration.GetConnectionString("MvcMovieContext")))
         {
 
         }

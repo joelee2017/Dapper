@@ -8,6 +8,7 @@ namespace DataAccess.DbOperation
 {
     public class MovieDbOperation : DbOperation<Movie>, IMovieDbOperation
     { 
+
         public MovieDbOperation(DbConnection connection) : base(connection)
         {
 

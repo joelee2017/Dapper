@@ -1,5 +1,7 @@
 ﻿using Common.Models;
 using DataAccess.DbContext;
+using DataAccess.Interface.DbContext;
+using Microsoft.Extensions.Configuration;
 using Servcie.Interface;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,12 @@ namespace Servcie.Service
 {
     public class MoviesService : IMoviesService
     {
-        private MovieDbContext _movieDbContext;
+        private IMovieDbContext _movieDbContext;
+
+        public MoviesService(IMovieDbContext movieDbContext)
+        {
+            _movieDbContext = movieDbContext;
+        }
 
         public IEnumerable<Movie> GetAll()
         {

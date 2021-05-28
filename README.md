@@ -14,3 +14,5 @@ Dapper專案練習
 六、加入 連線LIST、MovieDbContext、MovieDbOperation
 
 七、加入 Service 介面、實作類別，方法
+
+八、改寫注入、連線字串方式，之後會在將架構調整一番
