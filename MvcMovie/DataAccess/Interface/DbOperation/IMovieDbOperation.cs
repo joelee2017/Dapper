@@ -15,5 +15,30 @@ namespace DataAccess.Interface.DbOperation
         /// 取得全部資料
         /// </summary>
         IEnumerable<Movie> GetAll();
+
+        /// <summary>
+        /// 取得全部類型
+        /// </summary>        
+        IEnumerable<string> GenreQuery();
+
+        /// <summary>
+        /// 取得單筆資料
+        /// </summary>   
+        Movie Details(int id);
+
+        /// <summary>
+        /// 新增
+        /// </summary>
+        bool Create(Movie movie);
+
+        /// <summary>
+        /// 更新
+        /// </summary>
+        bool Edit(Movie movie);
+
+        /// <summary>
+        /// 刪除
+        /// </summary>
+        bool Delete(int id);
     }
 }
