@@ -1,4 +1,5 @@
 ﻿using Common.Helper;
+using DataAccess.DbContext;
 using DataAccess.DbOperation;
 using DataAccess.Interface.DbContext;
 using DataAccess.Interface.DbOperation;
@@ -11,8 +12,7 @@ namespace DataAccess.DbContext
     public class MovieDbContext : IMovieDbContext
     {
         private readonly Lazy<IMovieDbOperation> _movieDbOperation;
-        public MovieDbContext(IConfiguration configuration) :
-            this(ConnectionHpler.GetConnection(configuration.GetConnectionString("MvcMovieContext")))
+        public MovieDbContext() : this(ConnectionHpler.GetConnection(ConnectionString.Get()))
         {
 
         }
