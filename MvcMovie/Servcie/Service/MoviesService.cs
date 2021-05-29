@@ -20,6 +20,11 @@ namespace Servcie.Service
             _movieDbContext = movieDbContext;
         }
 
+        public IEnumerable<string> GenreQuery()
+        {
+             return _movieDbContext.MovieDbOperation.GenreQuery();
+        }
+
         public IEnumerable<Movie> GetAll()
         {
             return _movieDbContext.MovieDbOperation.GetAll();

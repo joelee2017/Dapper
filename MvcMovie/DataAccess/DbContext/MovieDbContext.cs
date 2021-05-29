@@ -1,9 +1,7 @@
-﻿using Common.Helper;
-using DataAccess.DbContext;
-using DataAccess.DbOperation;
+﻿using DataAccess.DbOperation;
+using DataAccess.Helper;
 using DataAccess.Interface.DbContext;
 using DataAccess.Interface.DbOperation;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Data.Common;
 

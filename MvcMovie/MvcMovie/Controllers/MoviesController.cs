@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
 using Servcie.Interface;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,9 +26,11 @@ namespace MvcMovie.Controllers
         public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
             // Use LINQ to get list of genres.
-            IQueryable<string> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
+            //IQueryable<string> genreQuery = from m in _context.Movie
+            //                                orderby m.Genre
+            //                                select m.Genre;
+
+            IEnumerable<string> genreQuery = _moviesService.GenreQuery();
 
             //var movies = from m in _context.Movie
             //             select m;
@@ -47,7 +50,7 @@ namespace MvcMovie.Controllers
 
             var movieGenreVM = new MovieGenreViewModel
             {
-                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Genres = new SelectList(genreQuery),
                 //Movies = await movies.ToListAsync()
                 Movies = movies.ToList()
             };

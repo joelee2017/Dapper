@@ -62,7 +62,7 @@ namespace DataAccess.DbOperation
 
         public IEnumerable<string> GenreQuery()
         {
-            string sql = @"select Genre from Movie order by Genre";
+            string sql = @"select distinct Genre from Movie order by Genre";
 
             return base.GetAll(sql).Select(s => s.Genre);
         }
@@ -78,7 +78,9 @@ namespace DataAccess.DbOperation
         {
             string sql = @"select * from Movie where Tile LIKE '%@Tile%'";
 
-            return base.GetList(sql, new { Title = searchString });
+            var result = base.GetList(sql, new { Title = searchString });
+
+            return result;
         }
     }
 }
