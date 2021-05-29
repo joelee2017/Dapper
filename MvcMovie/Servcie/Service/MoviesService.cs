@@ -14,6 +14,11 @@ namespace Servcie.Service
             _movieDbContext = movieDbContext;
         }
 
+        public bool Create(Movie movie)
+        {
+            return _movieDbContext.MovieDbOperation.Create(movie);
+        }
+
         public Movie Details(int id)
         {
            return _movieDbContext.MovieDbOperation.Details(id);

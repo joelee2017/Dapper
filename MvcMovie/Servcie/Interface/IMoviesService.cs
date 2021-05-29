@@ -26,5 +26,11 @@ namespace Servcie.Interface
         /// </summary>
         /// <param name="id"></param>
         public Movie Details(int id);
+
+        /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="movie">資料</param>
+        public bool Create(Movie movie);
     }
 }

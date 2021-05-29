@@ -18,7 +18,7 @@ namespace DataAccess.DbOperation
         public bool Create(Movie movie)
         {
             string sql = @"insert into Movie (Title, ReleaseDate, Genre, Price, Rating)
-                            value (@Title, @ReleaseDate, @Genre, @Price, @Rating)";
+                            values (@Title, @ReleaseDate, @Genre, @Price, @Rating)";
 
             return base.Create(sql, 
                 new {   Title = movie.Title, 

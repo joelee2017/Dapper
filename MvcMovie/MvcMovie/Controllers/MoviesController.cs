@@ -14,7 +14,7 @@ namespace MvcMovie.Controllers
     public class MoviesController : Controller
     {
         private readonly MvcMovieContext _context;
-        private readonly IMoviesService  _moviesService;
+        private readonly IMoviesService _moviesService;
 
         public MoviesController(MvcMovieContext context, IMoviesService moviesService)
         {
@@ -88,11 +88,20 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
+            bool result = false;
             if (ModelState.IsValid)
             {
-                _context.Add(movie);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                result = _moviesService.Create(movie);
+
+                if (result)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return View(movie);
+                }
+
             }
             return View(movie);
         }
