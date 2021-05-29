@@ -20,5 +20,11 @@ namespace Servcie.Interface
         /// 取得全部資料類型
         /// </summary>
         public IEnumerable<string> GenreQuery();
+
+        /// <summary>
+        /// 詳細資料
+        /// </summary>
+        /// <param name="id"></param>
+        public Movie Details(int id);
     }
 }

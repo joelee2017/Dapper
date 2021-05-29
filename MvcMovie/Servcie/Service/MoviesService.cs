@@ -1,13 +1,7 @@
 ﻿using Common.Models;
-using DataAccess.DbContext;
 using DataAccess.Interface.DbContext;
-using Microsoft.Extensions.Configuration;
 using Servcie.Interface;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servcie.Service
 {
@@ -18,6 +12,11 @@ namespace Servcie.Service
         public MoviesService(IMovieDbContext movieDbContext)
         {
             _movieDbContext = movieDbContext;
+        }
+
+        public Movie Details(int id)
+        {
+           return _movieDbContext.MovieDbOperation.Details(id);
         }
 
         public IEnumerable<string> GenreQuery()

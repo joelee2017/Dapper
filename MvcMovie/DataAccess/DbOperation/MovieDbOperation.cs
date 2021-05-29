@@ -39,7 +39,9 @@ namespace DataAccess.DbOperation
         {
             string sql = @"select * from Movie where Id = @Id";
 
-            return base.Get(sql, new { Id = id });
+            var result = base.Get(sql, new { Id = id });
+
+            return result;
         }
 
         public bool Edit(Movie movie)

@@ -25,16 +25,10 @@ namespace MvcMovie.Controllers
         // GET: Movies
         public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
-            // Use LINQ to get list of genres.
-            //IQueryable<string> genreQuery = from m in _context.Movie
-            //                                orderby m.Genre
-            //                                select m.Genre;
-
+            // 取得所有類別
             IEnumerable<string> genreQuery = _moviesService.GenreQuery();
 
-            //var movies = from m in _context.Movie
-            //             select m;
-
+            // 取資主要資料
             var movies = from m in _moviesService.GetAll()
                          select m;
 
@@ -51,7 +45,6 @@ namespace MvcMovie.Controllers
             var movieGenreVM = new MovieGenreViewModel
             {
                 Genres = new SelectList(genreQuery),
-                //Movies = await movies.ToListAsync()
                 Movies = movies.ToList()
             };
 
@@ -72,8 +65,8 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+
+            var movie = _moviesService.Details(id.Value);
             if (movie == null)
             {
                 return NotFound();
