@@ -44,5 +44,10 @@ namespace Servcie.Interface
         /// </summary>
         /// <param name="id"></param>
         bool Exists(int id);
+
+        /// <summary>
+        /// 刪除
+        /// </summary>
+        bool Remove(int id);
     }
 }

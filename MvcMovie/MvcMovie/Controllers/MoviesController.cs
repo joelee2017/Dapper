@@ -115,7 +115,7 @@ namespace MvcMovie.Controllers
             }
 
             Movie movie = new Movie();
-            await Task.Run(() => { movie =  _moviesService.Details(id.Value); });
+            await Task.Run(() => { movie = _moviesService.Details(id.Value); });
 
             if (movie == null)
             {
@@ -167,8 +167,8 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+            Movie movie = new Movie();
+            await Task.Run(() => { movie = _moviesService.Details(id.Value); });
             if (movie == null)
             {
                 return NotFound();
@@ -182,9 +182,17 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var movie = await _context.Movie.FindAsync(id);
-            _context.Movie.Remove(movie);
-            await _context.SaveChangesAsync();
+            await Task.Run(() =>
+            {
+                var exists = _moviesService.Exists(id);
+                if (exists)
+                {
+                    _moviesService.Remove(id);
+                }
+
+            });
+
+
             return RedirectToAction(nameof(Index));
         }
 

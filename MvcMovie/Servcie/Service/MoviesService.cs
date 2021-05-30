@@ -19,6 +19,11 @@ namespace Servcie.Service
             return _movieDbContext.MovieDbOperation.Create(movie);
         }
 
+        public bool Remove(int id)
+        {
+             return _movieDbContext.MovieDbOperation.Delete(id);
+        }
+
         public Movie Details(int id)
         {
             return _movieDbContext.MovieDbOperation.Get(id);
