@@ -25,6 +25,7 @@ namespace MvcMovie.Controllers
         // GET: Movies
         public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
+
             // 取得所有類別
             IEnumerable<string> genreQuery = _moviesService.GenreQuery();
 
@@ -95,6 +96,7 @@ namespace MvcMovie.Controllers
 
                 if (result)
                 {
+                    TempData["message"] = "success";
                     return RedirectToAction(nameof(Index));
                 }
                 else
@@ -141,7 +143,11 @@ namespace MvcMovie.Controllers
 
                 try
                 {
-                    _moviesService.Update(movie);
+                    var restul = _moviesService.Update(movie);
+                    if (restul)
+                    {
+                        TempData["message"] = "success";
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -187,7 +193,11 @@ namespace MvcMovie.Controllers
                 var exists = _moviesService.Exists(id);
                 if (exists)
                 {
-                    _moviesService.Remove(id);
+                    var restul = _moviesService.Remove(id);
+                    if (restul)
+                    {
+                        TempData["message"] = "success";
+                    }
                 }
 
             });

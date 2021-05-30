@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+
+    string message = TempData["message"]?.ToString();
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -49,9 +54,28 @@
             &copy; 2020 - Movie App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <div>
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header @(message =="success" ? "alert-success" : "alert-danger")">
+                        <h5 class="modal-title">@TempData["message"]</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        if ("@message" != "") {
+            $('.modal').show();
+            $('.modal').fadeOut(3000);
+        }
+
+    </script>
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>
