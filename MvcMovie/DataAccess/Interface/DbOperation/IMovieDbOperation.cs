@@ -34,7 +34,7 @@ namespace DataAccess.Interface.DbOperation
         /// <summary>
         /// 更新
         /// </summary>
-        bool Edit(Movie movie);
+        bool Update(Movie movie);
 
         /// <summary>
         /// 刪除

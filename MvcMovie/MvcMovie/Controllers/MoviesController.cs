@@ -114,7 +114,9 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var movie = await _context.Movie.FindAsync(id);
+            Movie movie = new Movie();
+            await Task.Run(() => { movie =  _moviesService.Details(id.Value); });
+
             if (movie == null)
             {
                 return NotFound();
@@ -138,8 +140,7 @@ namespace MvcMovie.Controllers
             {
                 try
                 {
-                    _context.Update(movie);
-                    await _context.SaveChangesAsync();
+                    _moviesService.Update(movie);
                 }
                 catch (DbUpdateConcurrencyException)
                 {

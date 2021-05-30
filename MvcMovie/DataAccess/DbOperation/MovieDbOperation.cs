@@ -44,7 +44,7 @@ namespace DataAccess.DbOperation
             return result;
         }
 
-        public bool Edit(Movie movie)
+        public bool Update(Movie movie)
         {
             string sql = @"update Movie 
                             set Title = @Title, ReleaseDate = @ReleaseDate, Genre = @Genre, Price = @Price, Rating = @Rating 

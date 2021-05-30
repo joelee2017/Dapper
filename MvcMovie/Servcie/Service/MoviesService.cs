@@ -38,5 +38,10 @@ namespace Servcie.Service
         {
             return _movieDbContext.MovieDbOperation.Gets(searchString);
         }
+
+        public bool Update(Movie movie)
+        {
+          return _movieDbContext.MovieDbOperation.Update(movie);
+        }
     }
 }
