@@ -138,6 +138,7 @@ namespace MvcMovie.Controllers
 
             if (ModelState.IsValid)
             {
+
                 try
                 {
                     _moviesService.Update(movie);
@@ -189,7 +190,8 @@ namespace MvcMovie.Controllers
 
         private bool MovieExists(int id)
         {
-            return _context.Movie.Any(e => e.Id == id);
+            var result = _moviesService.Exists(id);
+            return result;
         }
     }
 }

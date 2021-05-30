@@ -24,7 +24,7 @@ namespace DataAccess.Interface.DbOperation
         /// <summary>
         /// 取得單筆資料
         /// </summary>   
-        Movie Details(int id);
+        Movie Get(int id);
 
         /// <summary>
         /// 新增

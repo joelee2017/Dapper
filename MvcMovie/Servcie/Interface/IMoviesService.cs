@@ -38,5 +38,11 @@ namespace Servcie.Interface
         /// </summary>
         /// <param name="movie">資料</param>
         bool Update(Movie movie);
+
+        /// <summary>
+        /// 是否存在
+        /// </summary>
+        /// <param name="id"></param>
+        bool Exists(int id);
     }
 }

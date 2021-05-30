@@ -35,7 +35,7 @@ namespace DataAccess.DbOperation
             return base.Delete(sql, new { Id = id }) > 0;
         }
 
-        public Movie Details(int id)
+        public Movie Get(int id)
         {
             string sql = @"select * from Movie where Id = @Id";
 

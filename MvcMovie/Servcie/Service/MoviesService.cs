@@ -21,12 +21,17 @@ namespace Servcie.Service
 
         public Movie Details(int id)
         {
-           return _movieDbContext.MovieDbOperation.Details(id);
+            return _movieDbContext.MovieDbOperation.Get(id);
+        }
+
+        public bool Exists(int id)
+        {
+            return _movieDbContext.MovieDbOperation.Get(id) != null;
         }
 
         public IEnumerable<string> GenreQuery()
         {
-             return _movieDbContext.MovieDbOperation.GenreQuery();
+            return _movieDbContext.MovieDbOperation.GenreQuery();
         }
 
         public IEnumerable<Movie> GetAll()
@@ -41,7 +46,7 @@ namespace Servcie.Service
 
         public bool Update(Movie movie)
         {
-          return _movieDbContext.MovieDbOperation.Update(movie);
+            return _movieDbContext.MovieDbOperation.Update(movie);
         }
     }
 }
