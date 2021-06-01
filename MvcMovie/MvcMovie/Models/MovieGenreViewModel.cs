@@ -1,4 +1,4 @@
-﻿using Common.Models;
+﻿using Domain.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 

@@ -1,4 +1,4 @@
-﻿using Common.Models;
+﻿using Domain.Models;
 using System.Collections.Generic;
 
 namespace DataAccess.Interface.DbOperation

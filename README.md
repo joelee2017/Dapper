@@ -25,4 +25,4 @@ Dapper專案練習
 
 十三、增加簡易回傳訊息視窗
 
-十四、Service 層修改為 Business 層
+十四、Service 層 > Business 層、 Common 層 > Domain 層
