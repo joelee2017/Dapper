@@ -1,7 +1,7 @@
 ﻿using Common.Models;
 using System.Collections.Generic;
 
-namespace Servcie.Interface
+namespace Business.Interface
 {
     public interface IMoviesService
     {

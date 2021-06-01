@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcMovie", "MvcMovie\MvcMovie.csproj", "{12FB91EC-195D-4561-B431-FFD5D231A2D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{874DAF3D-59E3-402D-96F1-88B73E149B57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{874DAF3D-59E3-402D-96F1-88B73E149B57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servcie", "Servcie\Servcie.csproj", "{64846445-A680-4D1D-AE44-9276C0210F88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Servcie\Business.csproj", "{64846445-A680-4D1D-AE44-9276C0210F88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{97ADAB7E-7965-49B3-87BA-09F85E87E332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{97ADAB7E-7965-49B3-87BA-09F85E87E332}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

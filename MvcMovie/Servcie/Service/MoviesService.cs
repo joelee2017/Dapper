@@ -1,9 +1,9 @@
-﻿using Common.Models;
+﻿using Business.Interface;
+using Common.Models;
 using DataAccess.Interface.DbContext;
-using Servcie.Interface;
 using System.Collections.Generic;
 
-namespace Servcie.Service
+namespace Business.Service
 {
     public class MoviesService : IMoviesService
     {

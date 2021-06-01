@@ -1,18 +1,14 @@
+using Business.Interface;
+using Business.Service;
 using DataAccess.DbContext;
-using DataAccess.DbOperation;
 using DataAccess.Interface.DbContext;
-using DataAccess.Interface.DbOperation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MvcMovie.Data;
-using Servcie.Interface;
-using Servcie.Service;
-using System.Data;
 
 namespace MvcMovie
 {
